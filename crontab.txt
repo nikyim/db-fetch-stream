@@ -1,0 +1,1 @@
+* * * * * root /bin/bash /var/db-fetch-stream/main.sh start >> /var/log/db_fetch_stream.log 2>&1

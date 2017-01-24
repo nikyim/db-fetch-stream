@@ -1,2 +1,2 @@
 # db-fetch-stream
-Data pipeline that transfer database query records to Kafka/Kinesis stream
+Data Pipeline that fetch database query result to Kafka/Kinesis stream
