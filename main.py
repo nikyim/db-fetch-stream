@@ -10,5 +10,7 @@ def main():
     pool = ThreadPool(len(database_list))
     pool.map(commence, database_list)
 
+    print("Transfer completed for this batch")
+
 if __name__ == '__main__':
     main()

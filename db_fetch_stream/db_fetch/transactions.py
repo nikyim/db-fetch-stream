@@ -25,25 +25,26 @@ class FetchClass(DBConnector):
 
         elif self.db_config.DB_CONFIG["type"] == "mssql":
             query = """
-                SELECT *
+                SELECT TOP {} *
                 FROM
                     {} (NOLOCK)
                 WHERE
                     {} > {}
                 ORDER BY
                     {} ASC
-                LIMIT {}
-                """.format(table["name"],
+                """.format(table["size"],
+                           table["name"],
                            table["primary_key"],
                            last_state["value"],
-                           table["primary_key"],
-                           table["size"])
+                           table["primary_key"]
+                           )
 
         try:
             self.execute_query(query)
+            fetch_rows = self.cur.fetchall()
             self.conn.commit()
+            return fetch_rows
 
-            return self.cur.fetchall()
         except Exception as e:
             logger_helper.logger.error(e.args)
             return []

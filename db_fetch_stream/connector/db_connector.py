@@ -21,7 +21,6 @@ class DBConnector(object):
 
             elif db_config.DB_CONFIG["type"] == "mssql":
                 self.conn = pymssql.connect(server=db_config.DB_CONFIG["host"],
-                                            port=db_config.DB_CONFIG["port"],
                                             user=db_config.DB_CONFIG["username"],
                                             password=db_config.DB_CONFIG["password"],
                                             database=db_config.DB_CONFIG["dbname"],

@@ -18,7 +18,7 @@ def commence(db_config):
             pass
         else:
             for row in result:
-                print(row)
+                print(row[table["primary_key"]])
 
             # Assign last_state value variables
             last_result = result[-1]
